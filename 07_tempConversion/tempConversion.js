@@ -1,9 +1,13 @@
-const ftoc = function() {
+/* steps
+1. put in formula
+2. round up to 1dp */
 
+const ftoc = function(fah) {
+  return parseFloat(((fah - 32) * (5/9)).toFixed(1))
 };
 
-const ctof = function() {
-
+const ctof = function(cel) {
+  return parseFloat((cel* (9/5) + 32).toFixed(1))
 };
 
 // Do not edit below this line

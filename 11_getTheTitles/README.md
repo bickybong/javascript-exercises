@@ -1,5 +1,5 @@
 # Exercise 11 - Get the Titles!
-
+ 
 You are given an array of objects that represent books with an author and a title that looks like this:
 
 ```javascript
