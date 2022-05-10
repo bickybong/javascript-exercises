@@ -1,27 +1,35 @@
 /* steps
-1. loop through array
-2. from obj, push name 
-3. push age as yearOfDeath - yearOfBirth
-4. find oldest index
-5. return name according to index */
+1. sort the ages
+2. take name of oldest person*/
+people = [
+    {
+      name: "Carly",
+      yearOfBirth: 1942,
+      yearOfDeath: 1970,
+    },
+    {
+      name: "Ray",
+      yearOfBirth: 1962,
+      yearOfDeath: 2011,
+    },
+    {
+      name: "Jane",
+      yearOfBirth: 1912,
+      yearOfDeath: 1941,
+    },
+  ]
 
-const findTheOldest = function(array) {
- names = [];
- ages = [];
- const d = new Date();
- for (const obj of array){
-     names.push(obj.name);
-     if (obj.yearOfDeath){
-         ages.push(obj.yearOfDeath - obj.yearOfBirth);
-     } else{
-         ages.push(d.getFullYear() - obj.yearOfBirth);
-     }
-     console.log(names, ages);
- }
- const max = Math.max(...ages);
- const index = ages.indexOf(max);
- return {name: names[index]};
-};
+ function findTheOldest(array) {
+     sorted = array.sort((a,b) => {
+         if (!a.yearOfDeath) {
+             a.yearOfDeath = (new Date()).getFullYear()
+         } else if (!b.yearOfDeath) {
+            b.yearOfDeath = (new Date()).getFullYear()
+        }
+     return ((a.yearOfDeath - a.yearOfBirth) > (b.yearOfDeath - b.yearOfBirth)) ? -1: 1});
+     return sorted[0];
+      };
+console.log(findTheOldest(people));
 
 // Do not edit below this line
 module.exports = findTheOldest;
