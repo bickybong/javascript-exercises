@@ -11,7 +11,7 @@ const palindromes = function (word) {
         if (!(/[a-zA-Z]/).test(letter)){
             continue;
         }
-        newa.push(letter)
+        newa.push(letter);
         reverse.unshift(letter);
     }
     if (reverse.toString() === newa.toString()){
